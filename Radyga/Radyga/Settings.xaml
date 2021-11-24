@@ -1,0 +1,56 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Radyga"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="Radyga.Settings"
+        mc:Ignorable="d"
+        Title="Radyga" WindowStartupLocation="CenterScreen" AllowsTransparency="True" Height="190" Width="563" BorderThickness="0" WindowStyle="None" Topmost="True" ResizeMode="NoResize" Background="{x:Null}">
+    <Grid Background="#FF191919">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="54*"/>
+            <RowDefinition Height="41*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Background="#FF212121" Margin="0,0,0,81"/>
+        <StackPanel HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="250" Background="#FF131313" Margin="146,0,0,0"/>
+        <StackPanel Background="#FF212121" Margin="89,0,370,74" RenderTransformOrigin="0.5,0.5">
+            <StackPanel.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="30"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </StackPanel.RenderTransform>
+        </StackPanel>
+        <StackPanel Background="#FF212121" Margin="348,0,109,74" RenderTransformOrigin="0.5,0.5">
+            <StackPanel.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-30"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </StackPanel.RenderTransform>
+        </StackPanel>
+        <StackPanel Background="#FF191919" Margin="89,27,132,47"/>
+        <Label Content="Radyga Settings" HorizontalAlignment="Left" Margin="229,0,0,0" VerticalAlignment="Top"/>
+
+        <Image Width="27" VerticalAlignment="Top" Source="round_close_white_24dp.png" Margin="528,0,0,0" Height="27" HorizontalAlignment="Left"/>
+        <StackPanel Background="#FF444444" Margin="0,-34,111,108"/>
+        <Label Content="Окно настроек" HorizontalAlignment="Left" Margin="7,-29,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="topmost" Content="TopMost" HorizontalAlignment="Left" Margin="7,37,0,0" VerticalAlignment="Top" Foreground="White" Checked="topmost_Checked" Unchecked="topmost_Unchecked"/>
+        <CheckBox x:Name="startanim" Content="Remove Start&#xD;&#xA;Animation" HorizontalAlignment="Left" Margin="7,63,0,0" VerticalAlignment="Top" Foreground="White" Checked="autoattach_Checked" Unchecked="startanim_Unchecked"/>
+        <Button x:Name="killrblx" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Kill Roblox" HorizontalAlignment="Left" Margin="106,32,0,0" VerticalAlignment="Top" Width="449" Background="#FF131313" BorderBrush="{x:Null}" Foreground="White" Height="29" FontWeight="Normal" Click="killrblx_Click"/>
+        <Button x:Name="multipleRblx" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Multiple Roblox" HorizontalAlignment="Left" Margin="106,66,0,0" VerticalAlignment="Top" Width="449" Background="#FF131313" BorderBrush="{x:Null}" Foreground="White" Height="29" FontWeight="Normal" Click="multipleRblx_Click"/>
+        <Button x:Name="flyexec" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="FLY" HorizontalAlignment="Left" Margin="40,10,0,0" VerticalAlignment="Top" Width="158" Background="#FF131313" BorderBrush="{x:Null}" Foreground="White" Height="29" FontWeight="Normal" Grid.Row="1" Click="flyexec_Click"/>
+        <Button x:Name="btoolsexec" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="BTools" HorizontalAlignment="Left" Margin="203,10,0,0" VerticalAlignment="Top" Width="158" Background="#FF131313" BorderBrush="{x:Null}" Foreground="White" Height="29" FontWeight="Normal" Grid.Row="1" Click="btoolsexec_Click"/>
+        <Button x:Name="speedexec" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Speed" HorizontalAlignment="Left" Margin="366,10,0,43" Width="158" Background="#FF131313" BorderBrush="{x:Null}" Foreground="White" Height="Auto" FontWeight="Normal" Grid.Row="1" Click="speedexec_Click"/>
+        <Label Content="Thanks!" HorizontalAlignment="Left" Margin="0,58,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+        <CheckBox x:Name="autoinject" Content="AutoInject" HorizontalAlignment="Left" Margin="479,60,0,0" VerticalAlignment="Top" Foreground="White" Grid.Row="1" Checked="autoinject_Checked" Unchecked="autoinject_Unchecked"/>
+        <StackPanel x:Name="dragPanel" HorizontalAlignment="Left" Height="27" Margin="1,0,0,0" VerticalAlignment="Top" Width="562" Background="#02000000" MouseDown="dragPanel_MouseDown"/>
+        <Button x:Name="exitBtn" Opacity="100" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="X" HorizontalAlignment="Left" Margin="520,0,0,0" VerticalAlignment="Top" Width="43" Height="27" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" FontFamily="Segoe UI Light" FontSize="16" Click="exitBtn_Click"/>
+
+    </Grid>
+</Window>
