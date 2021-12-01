@@ -13,7 +13,7 @@ using System.Xml;
 using ICSharpCode.AvalonEdit.Highlighting;
 using ICSharpCode.AvalonEdit.Highlighting.Xshd;
 using Microsoft.Win32;
-using TRXDLLManager;
+using DLLManager;
 
 namespace Radyga
 {
@@ -91,6 +91,8 @@ namespace Radyga
             { Topmost = true; }
             else
             { Topmost = false; }
+
+
             dllCombo.SelectedIndex = Properties.Settings.Default.SelectedDLL;
 
 
@@ -148,19 +150,28 @@ namespace Radyga
         private void credits_Click(object sender, RoutedEventArgs e)
         {
             Credits credits = new Credits();
-            credits.Show();
+            credits.ShowDialog();
         }
 
         private bool InjectMethod(string dllName) //Injector select method | Метод, определяющий через какой инжектор будет происходить инжект
         {
             try
             {
-                //через паппимилк
-                var inj = new ProcessStartInfo(@".\Bin\PuppyMilkV3.exe");
-                inj.CreateNoWindow = true;
-                inj.Arguments = "\"" + Environment.CurrentDirectory + @"\DLLs\" + dllName + "\"";
-                Process.Start(inj).WaitForExit();
-                return true;
+                if(Properties.Settings.Default.PuppyMilk == true)
+                {
+                    //через паппимилк
+                    var inj = new ProcessStartInfo(@".\Bin\PuppyMilkV3.exe");
+                    inj.CreateNoWindow = true;
+                    inj.Arguments = "\"" + Environment.CurrentDirectory + @"\DLLs\" + dllName + "\"";
+                    Process.Start(inj).WaitForExit();
+                    return true;
+                }
+                else
+                {
+                    Injector injector = new Injector();
+                    injector.Inject(dllName);
+                    return true;
+                }
             }
             catch (Exception ex)
             {
@@ -581,7 +592,7 @@ namespace Radyga
         private void inject_Click(object sender, RoutedEventArgs e)
         {
             Inject();
-        }        
+        }
 
         private void savefileBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -644,13 +655,18 @@ namespace Radyga
         private void settings_Click(object sender, RoutedEventArgs e)
         {
             Settings stn = new Settings();
-            stn.Show();
+            stn.ShowDialog();
         }
 
+        bool dllComboLoaded = false;
         private void dllCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Properties.Settings.Default.SelectedDLL = dllCombo.SelectedIndex;
-            Properties.Settings.Default.Save();
+            if(dllComboLoaded == true)
+            {
+                Properties.Settings.Default.SelectedDLL = dllCombo.SelectedIndex;
+                Properties.Settings.Default.Save();
+                Properties.Settings.Default.Reload();
+            }
         }
 
         private void dragPanel_MouseDown(object sender, MouseButtonEventArgs e) //Перемещение окна
@@ -661,6 +677,11 @@ namespace Radyga
                     DragMove();
             }
             catch { }
+        }
+
+        private void dllCombo_Loaded(object sender, RoutedEventArgs e)
+        {
+            dllComboLoaded = true;
         }
     }
 }

@@ -86,7 +86,7 @@
             <Button ToolTip="Inject" x:Name="inject" Opacity="100" materialDesign:ShadowAssist.ShadowDepth="Depth0" HorizontalAlignment="Left" Margin="18,332,0,0" VerticalAlignment="Top" Width="45" Height="45" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" FontFamily="Segoe UI Light" FontSize="16" Grid.Column="1" Click="inject_Click"/>
             <Image Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="36" Margin="68,338,0,0" VerticalAlignment="Top" Width="40" Source="round_people_alt_white_24dp.png"/>
             <Button ToolTip="Credits" x:Name="credits" Opacity="100" materialDesign:ShadowAssist.ShadowDepth="Depth0" HorizontalAlignment="Left" Margin="64,332,0,0" VerticalAlignment="Top" Width="45" Height="45" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" FontFamily="Segoe UI Light" FontSize="16" Grid.Column="1" Click="credits_Click"/>
-            <ComboBox x:Name="dllCombo" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="232,345,0,0" VerticalAlignment="Top" Width="314" Foreground="White" SelectedIndex="0" SelectionChanged="dllCombo_SelectionChanged">
+            <ComboBox x:Name="dllCombo" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="232,345,0,0" VerticalAlignment="Top" Width="314" Foreground="White" SelectedIndex="0" SelectionChanged="dllCombo_SelectionChanged" Loaded="dllCombo_Loaded">
                 <ComboBoxItem Content="EasyExploits DLL"/>
                 <ComboBoxItem Content="WeAreDevs DLL"/>
                 <ComboBoxItem Content="KRNL DLL"/>

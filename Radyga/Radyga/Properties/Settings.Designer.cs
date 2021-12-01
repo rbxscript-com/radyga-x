@@ -61,7 +61,7 @@ namespace Radyga.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public int SelectedDLL {
             get {
                 return ((int)(this["SelectedDLL"]));
@@ -92,6 +92,18 @@ namespace Radyga.Properties {
             }
             set {
                 this["IsOpened"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool PuppyMilk {
+            get {
+                return ((bool)(this["PuppyMilk"]));
+            }
+            set {
+                this["PuppyMilk"] = value;
             }
         }
     }

@@ -51,6 +51,7 @@
         <CheckBox x:Name="autoinject" Content="AutoInject" HorizontalAlignment="Left" Margin="479,60,0,0" VerticalAlignment="Top" Foreground="White" Grid.Row="1" Checked="autoinject_Checked" Unchecked="autoinject_Unchecked"/>
         <StackPanel x:Name="dragPanel" HorizontalAlignment="Left" Height="27" Margin="1,0,0,0" VerticalAlignment="Top" Width="562" Background="#02000000" MouseDown="dragPanel_MouseDown"/>
         <Button x:Name="exitBtn" Opacity="100" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="X" HorizontalAlignment="Left" Margin="520,0,0,0" VerticalAlignment="Top" Width="43" Height="27" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" FontFamily="Segoe UI Light" FontSize="16" Click="exitBtn_Click"/>
+        <CheckBox x:Name="puppyMilk" Content="PuppyMilk Injector" HorizontalAlignment="Left" Margin="353,60,0,0" VerticalAlignment="Top" Foreground="White" Grid.Row="1" Checked="puppyMilk_Checked" Unchecked="puppyMilk_Unchecked"/>
 
     </Grid>
 </Window>

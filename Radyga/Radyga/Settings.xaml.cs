@@ -29,6 +29,10 @@ namespace Radyga
             {
                 startanim.IsChecked = true;
             }
+            if(Properties.Settings.Default.PuppyMilk == true)
+            {
+                puppyMilk.IsChecked = true;
+            }
         }
 
         private void killrblx_Click(object sender, RoutedEventArgs e) // kill roblox | экстренное выключение процесса роблокса
@@ -122,6 +126,18 @@ namespace Radyga
         private void exitBtn_Click(object sender, RoutedEventArgs e) //exut | выход
         {
             Hide();
+        }
+
+        private void puppyMilk_Checked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.PuppyMilk = true;
+            Properties.Settings.Default.Save();
+        }
+
+        private void puppyMilk_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.PuppyMilk = false;
+            Properties.Settings.Default.Save();
         }
     }
 }

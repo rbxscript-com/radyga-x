@@ -40,6 +40,10 @@
     <ApplicationIcon>mall.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DLLManager, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Винда 2\СУРС\DLLDownloader\TRXDLLDownloader\bin\Release\DLLManager.dll</HintPath>
+    </Reference>
     <Reference Include="ICSharpCode.AvalonEdit, Version=6.1.1.20, Culture=neutral, PublicKeyToken=9cc39be672370310, processorArchitecture=MSIL">
       <HintPath>..\packages\AvalonEdit.6.1.1\lib\net45\ICSharpCode.AvalonEdit.dll</HintPath>
     </Reference>
@@ -61,9 +65,6 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
-    <Reference Include="TRXDLLManager">
-      <HintPath>D:\Винда 2\СУРС\TRXDLLDownloader\TRXDLLDownloader\bin\Release\TRXDLLManager.dll</HintPath>
-    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -73,6 +74,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Injector.cs" />
     <Compile Include="TruncateLongLines.cs" />
     <Page Include="Settings.xaml">
       <SubType>Designer</SubType>
