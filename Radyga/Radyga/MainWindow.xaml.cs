@@ -22,7 +22,6 @@ namespace Radyga
         private int time = 0;
 
         //DLL
-        ManagerANEMO anemoApi = new ManagerANEMO();
         ManagerEX exApi = new ManagerEX();
         ManagerKRNL krnlApi = new ManagerKRNL();
         ManagerWRD wrdApi = new ManagerWRD();
@@ -113,7 +112,7 @@ namespace Radyga
         {
             if (Properties.Settings.Default.AutoInject == true)
             {
-                bool flagg = !exApi.isInjected() && !wrdApi.isAPIAttached() && !ManagerKRNL.NamedPipeExist() && !anemoApi.IsInjected() && !ManagerELECTRON.NamedPipeExist();
+                bool flagg = !exApi.isInjected() && !wrdApi.isAPIAttached() && !krnlApi.IsInjected() && !ManagerELECTRON.NamedPipeExist();
                 if (flagg)
                 {
                     bool flag = Process.GetProcessesByName("RobloxPlayerBeta").Length >= 1;
@@ -231,14 +230,7 @@ namespace Radyga
             }
             else
             {
-                if (statuses.Split(',')[4] == "false")
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
+                return true;
             }
         }
 
@@ -293,6 +285,7 @@ namespace Radyga
                             {
                                 try
                                 {
+                                     exApi.DownloadEX();
                                     if (!InjectMethod("EasyExploitsDLL.dll"))
                                     {
                                         if (ci.Name == "ru_RU") //Translated error | Переведенная ошибка
@@ -416,9 +409,9 @@ namespace Radyga
                     }
                     else
                     {
-                        if (!ManagerKRNL.NamedPipeExist())
+                        if (!krnlApi.IsInjected())
                         {
-                            if (krnlApi.Updates())
+                            if (krnlApi.Initialize())
                             {
                                 if (!InjectMethod("Krnl.dll"))
                                 {
@@ -458,79 +451,6 @@ namespace Radyga
                     }
                 }
                 else if (Properties.Settings.Default.SelectedDLL == 3)
-                {
-                    if (!GetDLLStatus(3))
-                    {
-                        if (ci.Name == "ru_RU") //Translated error | Переведенная ошибка
-                        {
-                            MessageBox.Show("Данная DLL сейчас временно не работает.\nПопробуйте позже", "Radyga", MessageBoxButton.OK, MessageBoxImage.Error);
-                        }
-                        else
-                        {
-                            MessageBox.Show("DLL is temporarily not working now!", "Radyga", MessageBoxButton.OK, MessageBoxImage.Error);
-                        }
-                    }
-                    else
-                    {
-                        if (!anemoApi.IsInjected())
-                        {
-                            if (anemoApi.CheckDllUpdate() && File.Exists(@".\DLLs\AnemoDLL.dll"))
-                            {
-                                if (!InjectMethod("AnemoDLL.dll"))
-                                {
-                                    if (ci.Name == "ru_RU") //Translated error | Переведенная ошибка
-                                    {
-                                        MessageBox.Show("Неизвестная ошибка", "Radyga", MessageBoxButton.OK, MessageBoxImage.Error);
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("Unknown error", "Radyga", MessageBoxButton.OK, MessageBoxImage.Error);
-                                    }
-                                }
-                            }
-                            else
-                            {
-                                if (!anemoApi.DownloadDLL())
-                                {
-                                    if (ci.Name == "ru_RU") //Translated error | Переведенная ошибка
-                                    {
-                                        MessageBox.Show("Не получилось скачать последнюю версию DLL.", "Radyga", MessageBoxButton.OK, MessageBoxImage.Error);
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("Cant download the lastest version!", "Radyga", MessageBoxButton.OK, MessageBoxImage.Error);
-                                    }
-                                }
-                                else
-                                {
-                                    if (!InjectMethod("AnemoDLL.dll"))
-                                    {
-                                        if (ci.Name == "ru_RU") //Translated error | Переведенная ошибка
-                                        {
-                                            MessageBox.Show("Неизвестная ошибка", "Radyga", MessageBoxButton.OK, MessageBoxImage.Error);
-                                        }
-                                        else
-                                        {
-                                            MessageBox.Show("Unknown error", "Radyga", MessageBoxButton.OK, MessageBoxImage.Error);
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else
-                        {
-                            if (ci.Name == "ru_RU") //Translated error | Переведенная ошибка
-                            {
-                                MessageBox.Show("DLL уже инжектнута (подключена)!", "Radyga", MessageBoxButton.OK, MessageBoxImage.Error);
-                            }
-                            else
-                            {
-                                MessageBox.Show("DLL already injected!", "Radyga", MessageBoxButton.OK, MessageBoxImage.Error);
-                            }
-                        }
-                    }
-                }
-                else if (Properties.Settings.Default.SelectedDLL == 4)
                 {
                     if (!GetDLLStatus(4))
                     {

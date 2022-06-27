@@ -10,7 +10,6 @@ namespace Radyga
     {
         public void Execute(string script)
         {
-            ManagerANEMO anemoApi = new ManagerANEMO();
             ManagerEX exApi = new ManagerEX();
             ManagerKRNL krnlApi = new ManagerKRNL();
             ManagerWRD wrdApi = new ManagerWRD();
@@ -47,7 +46,7 @@ namespace Radyga
                 }
                 else if (Properties.Settings.Default.SelectedDLL == 2)
                 {
-                    if (ManagerKRNL.NamedPipeExist())
+                    if (krnlApi.IsInjected())
                     {
                         krnlApi.Execute(script);
                     }
@@ -57,17 +56,6 @@ namespace Radyga
                     }
                 }
                 else if (Properties.Settings.Default.SelectedDLL == 3)
-                {
-                    if (anemoApi.IsInjected())
-                    {
-                        anemoApi.ExecuteScript(script);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Please inject!", "DLL Manager");
-                    }
-                }
-                else if (Properties.Settings.Default.SelectedDLL == 4)
                 {
                     if (ManagerELECTRON.NamedPipeExist())
                     {
